@@ -204,15 +204,32 @@ function debounce(func, wait, immediate) {
 }
 
 function setWindowSize() {
-  let dimensions = {}
-  dimensions.width = $(window).width()
-  dimensions.height = $(window).height()
+  let width = window.innerWidth
+  let height = window.innerHeight
 
-  m.render.canvas.width = $(window).width()
-  m.render.canvas.height = $(window).height()
-  return dimensions
+  m.render.canvas.width = width
+  m.render.canvas.height = height
+
+  // Update render options to ensure physics/rendering bounds match
+  m.render.options.width = width
+  m.render.options.height = height
+  m.render.bounds.max.x = width
+  m.render.bounds.max.y = height
+
+  // Re-center the attractor body if it exists
+  if (m.engine.world.bodies) {
+    const attractor = m.engine.world.bodies.find(b => b.plugin && b.plugin.attractors);
+    if (attractor) {
+      Matter.Body.setPosition(attractor, {
+        x: width / 2,
+        y: height / 2
+      });
+    }
+  }
+
+  return { width, height }
 }
 
 let m = runMatter()
 setWindowSize()
-$(window).resize(debounce(setWindowSize, 250))
+window.addEventListener('resize', debounce(setWindowSize, 250))
