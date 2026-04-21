@@ -5,3 +5,102 @@
 /* body {
     cursor: url('./assets/icons/cursor.png'), auto;
 } */
+
+
+
+
+/* Modal Background (Overlay) */
+.modal {
+    display: flex;
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    z-index: 1000;
+    pointer-events: auto;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Modal Content Box */
+.modal-content {
+    background: none;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+    transform: scale(0.8) translateY(20px);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal.show .modal-content {
+    transform: scale(1) translateY(0);
+}
+
+/* Close Button */
+.close {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #333;
+    text-decoration: none;
+}
+
+.modal-header h2 {
+    margin-top: 0;
+    color: #5d5555;
+    font-size: 24px;
+}
+
+.modal-header p {
+    color: #5d5555;
+    margin-bottom: 30px;
+    font-size: 15px;
+}
+
+/* Image Containers */
+.model-container1, .model-container2 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 15px 0;
+    padding: 20px 15px;
+    border-radius: 12px;
+    background: none;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.model-container1 img, .model-container2 img {
+    width: 40px;
+    height: auto;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.model-container1 img:hover, .model-container2 img:hover {
+    transform: scale(1.15);
+}
+

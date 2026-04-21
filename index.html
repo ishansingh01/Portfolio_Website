@@ -124,7 +124,7 @@
             Ishan Singh</h1>
           <p class="pointer-events-auto relative z-20 font-['Merriweather'] italic mb-3 ">JAVA Fullstack
             Developer</p>
-          <button
+          <button id="openModalBtn" 
             class="pointer-events-auto bg-[#4595eb] py-2 px-5 rounded-[5px] font-extrabold bg-gradient-to-b from-purple-500 to-blue-500 relative hover:scale-110 ease-in-out duration-250 group">
             About Me
             <svg class="absolute top-1/2 -right-7 -translate-y-1/2 group-hover:-right-8 ease-in-out duration-250"
@@ -142,6 +142,60 @@
               </g>
             </svg>
           </button>
+                    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeIconBtn">&times;</span>
+            <div class="modal-header">
+                <h2>👋 Hey, I'm Ishan Singh</h2>
+                <p>A passionate Java FullStack Developer 🚀</p>
+            </div>
+            
+            <div class="model-container1">
+                <img src="assets/icons/HTML5_logo_and_wordmark.svg.png" alt="">
+                <img src="assets/icons/CSS3_logo_and_wordmark.svg.png" alt="">
+                <img src="assets/icons/tailwind-css-logo-rounded-free-png.webp" alt="">
+                <img src="assets/icons/2486e00a47e6ee6e1e08100d026a2a5e-removebg-preview.png" alt="">
+            </div>
+            <div class="model-container2">
+                <img src="assets/icons/MySQL-Logo.png" alt="">
+                <img src="assets/icons/Spring_Boot.svg.png" alt="">
+                <img src="assets/icons/microservices.png" alt="">
+                <img src="assets/icons/java-logo-1.png" alt="">
+                <img src="assets/icons/dsa.png" alt="">
+            </div>
+            
+            <button id="closeModalBtn" class="btn" style="margin-top:20px; background: #252020; width:20%; border-radius: 20px;">
+                Close me
+            </button>
+        </div>
+    </div>
+
+    <script>
+        var modal = document.getElementById("myModal");
+        var btn = document.getElementById("openModalBtn");
+        var closeIcon = document.getElementById("closeIconBtn");
+        var closeBtn = document.getElementById("closeModalBtn");
+
+        // Open
+        btn.onclick = function() {
+            modal.classList.add("show");
+        }
+
+        // Close functions
+        closeIcon.onclick = function() {
+            modal.classList.remove("show");
+        }
+        closeBtn.onclick = function() {
+            modal.classList.remove("show");
+        }
+
+        // Close on clicking outside
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.classList.remove("show");
+            }
+        }
+    </script>
         </div>
       </div>
       <ul class="pointer-events-auto ml-auto mt-20 space-y-6 text-[#b0b2c3] absolute right-8">
@@ -565,6 +619,7 @@
   <script src="https://cdn.jsdelivr.net/npm/matter-wrap@0.2.0/build/matter-wrap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/matter-attractors@0.1.6/build/matter-attractors.min.js"></script>
   <script src="matter.js"></script>
+  
 </body>
 
 </html>
